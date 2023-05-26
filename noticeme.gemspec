@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version = Noticeme::VERSION
   spec.authors = ["Houdini Project contributors"]
   spec.email = [""]
-  spec.summary = "Summary - TODO"
-  spec.description = "Summary - TODO"
+  spec.summary = "Summary"
+  spec.description = "Description"
   spec.homepage = "https://github.com/houdiniproject/noticeme-rb"
   spec.license = "AGPL-3.0-or-later WITH WTO-AP-3.0-or-later"
   spec.platform = Gem::Platform::RUBY
