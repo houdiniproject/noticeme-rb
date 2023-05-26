@@ -12,6 +12,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   standard:
+    name: StandardRb
     runs-on: ubuntu-latest
     permissions:
       contents: read
