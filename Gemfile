@@ -8,4 +8,5 @@ group :test do
   gem "standard"
   gem "webmock"
   gem "rspec"
+  gem "debug"
 end

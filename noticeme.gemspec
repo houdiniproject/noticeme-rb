@@ -24,9 +24,12 @@ Gem::Specification.new do |spec|
     "Gemfile", "Rakefile"]
   spec.extra_rdoc_files = ["README.md"]
   spec.require_paths = ["lib"]
+  spec.bindir = "exe"
+  spec.executables = ["noticeme"]
 
   spec.add_dependency "httparty"
   spec.add_dependency "bundler"
+  spec.add_dependency "thor"
 
   spec.metadata = {
     "rubygems_mfa_required" => "true"
