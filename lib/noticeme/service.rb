@@ -4,12 +4,14 @@
 # Full license explanation at https://github.com/houdiniproject/houdini/blob/main/LICENSE
 require "httparty"
 require "ostruct"
+require "logger"
 
 module Noticeme
   class Service
-    attr_reader :url
-    def initialize(url: "https://api.clearlydefined.io/notices")
+    attr_reader :url, :logger
+    def initialize(url: "https://api.clearlydefined.io/notices", logger: Logger.new)
       @url = url
+      @logger = logger
     end
 
     def get_notice(coordinates)
@@ -19,7 +21,8 @@ module Noticeme
           "Content-Type" => "application/json",
           "Accept" => "application/json"
         },
-        timeout: 120
+        timeout: 120,
+        logger: logger
       }
       result = HTTParty.post(url, options.merge(body: JSON.generate({coordinates: coordinates})))
 
