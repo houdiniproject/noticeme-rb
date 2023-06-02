@@ -9,12 +9,27 @@ require_relative "service"
 
 module Noticeme
   class Cli < Thor
+    def self.exit_on_failure?
+      true
+    end
+
+    NOTICE_FILE_NAME = "NOTICE"
     # contents of the Thor class
     desc "verify", "say hello to NAME"
     def verify
       lockfile = LockfileSource.new("Gemfile.lock")
       service = Service.new
-      puts service.get_notice(lockfile.to_coordinates)
+      result = service.get_notice(lockfile.to_coordinates)
+
+      raise "#{NOTICE_FILE_NAME} must be updated" unless File.exist?(NOTICE_FILE_NAME) && result&.content == File.read(NOTICE_FILE_NAME)
+    end
+
+    desc "update", "say hello to NAME"
+    def update
+      lockfile = LockfileSource.new("Gemfile.lock")
+      service = Service.new
+      result = service.get_notice(lockfile.to_coordinates)
+      File.write(NOTICE_FILE_NAME, result.content)
     end
   end
 end
