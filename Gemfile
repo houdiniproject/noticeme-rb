@@ -9,4 +9,5 @@ group :test do
   gem "webmock"
   gem "rspec"
   gem "debug"
+  gem "rake"
 end
