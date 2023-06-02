@@ -9,7 +9,7 @@ require "logger"
 module Noticeme
   class Service
     attr_reader :url, :logger
-    def initialize(url: "https://api.clearlydefined.io/notices", logger: Logger.new)
+    def initialize(url: "https://api.clearlydefined.io/notices", logger: Logger.new($stdout))
       @url = url
       @logger = logger
     end
@@ -22,7 +22,9 @@ module Noticeme
           "Accept" => "application/json"
         },
         timeout: 120,
-        logger: logger
+        logger: logger,
+        log_level: :debug,
+        log_format: :curl
       }
       result = HTTParty.post(url, options.merge(body: JSON.generate({coordinates: coordinates})))
 

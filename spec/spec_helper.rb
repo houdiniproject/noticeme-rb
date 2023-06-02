@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require "noticeme/rb"
+# License: AGPL-3.0-or-later WITH WTO-AP-3.0-or-later
+# Full license explanation at https://github.com/houdiniproject/houdini/blob/main/LICENSE
+
+require "noticeme"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

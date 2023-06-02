@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
+# License: AGPL-3.0-or-later WITH WTO-AP-3.0-or-later
+# Full license explanation at https://github.com/houdiniproject/houdini/blob/main/LICENSE
 
 require "bundler/setup"
 require "noticeme"
@@ -10,6 +12,8 @@ require "noticeme"
 # (If you use this, don't forget to add pry to your Gemfile!)
 # require "pry"
 # Pry.start
+
+require "debug"
 
 require "irb"
 IRB.start(__FILE__)

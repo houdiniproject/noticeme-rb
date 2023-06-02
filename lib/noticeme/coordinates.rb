@@ -7,11 +7,17 @@ module Noticeme
   class Coordinates
     attr_reader :args
     def initialize(*args)
-      @args = args
+      @args = normalize_args(args)
     end
 
     def to_s
       args.join("/")
+    end
+
+    private
+
+    def normalize_args(args)
+      (args.count == 1) ? args[0].split("/") : args
     end
   end
 end
