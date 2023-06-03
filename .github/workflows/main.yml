@@ -3,9 +3,9 @@ name: Ruby
 on:
   push:
     branches:
-      - latest-work-in-progress
-
+      - main
   pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
