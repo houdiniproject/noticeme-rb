@@ -1,0 +1,24 @@
+module Noticeme
+  VERSION: String
+  # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+  class Coordinates
+
+    attr_reader args:Array[String]
+    
+    def initialize: (*String) -> void
+                  
+    def to_s: () -> String
+  end
+
+  class LockfileSource
+    attr_reader file: String
+    attr_reader parser: Bundler::LockfileParser
+    
+    def initialize: (file:String) -> void
+                  
+    def to_coordinates: Array[Noticeme::Coordinates]
+  end
+
+  class Service
+    
+end
